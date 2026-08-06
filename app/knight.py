@@ -7,8 +7,12 @@ class Knight:
         self.weapon = knight["weapon"]
         self.potion = knight["potion"]
         self.protection = 0
+        self.if_prepared = False
 
     def preparation(self) -> Knight:
+        if self.if_prepared:
+            return self
+
         for armour_part in self.armour:
             self.protection += armour_part["protection"]
         self.power += self.weapon["power"]
@@ -16,11 +20,13 @@ class Knight:
             for key, value in self.potion["effect"].items():
                 if key == "hp":
                     self.hp += value
-                if key == "power":
+                elif key == "power":
                     self.power += value
-                if key == "protection":
+                elif key == "protection":
                     self.protection += value
+        self.if_prepared = True
         return self
+
 
     def fight(self, enemy: Knight) -> None:
         self.hp -= enemy.power - self.protection
