@@ -27,7 +27,6 @@ class Knight:
         self.if_prepared = True
         return self
 
-
     def fight(self, enemy: Knight) -> None:
         self.hp -= enemy.power - self.protection
         enemy.hp -= self.power - enemy.protection
