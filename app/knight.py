@@ -30,7 +30,7 @@ class Knight:
     def fight(self, enemy: Knight) -> None:
         self.hp -= enemy.power - self.protection
         enemy.hp -= self.power - enemy.protection
-
+        a = 1
         if self.hp <= 0:
             self.hp = 0
         if enemy.hp <= 0:
