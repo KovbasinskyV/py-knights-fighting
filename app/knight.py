@@ -33,6 +33,5 @@ class Knight:
 
         if self.hp <= 0:
             self.hp = 0
-
         if enemy.hp <= 0:
             enemy.hp = 0
